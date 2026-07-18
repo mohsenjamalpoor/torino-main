@@ -4,8 +4,8 @@ import { formatDate, getDuration } from "@/core/utils/formatDate";
 
 import formatPrice from "@/core/utils/formatPrice";
 import { getPersianCityName } from "@/core/utils/getPersianCityName";
-import { getPersianVehicleName } from "@/core/utils/getPersianVehicleName";
-import Link from "next/link";
+import { getVehicleInfo } from "@/core/utils/getPersianVehicleName";
+
 import { FaBus, FaMedal, FaRoute, FaUserCheck } from "react-icons/fa";
 import { HiUsers } from "react-icons/hi2";
 import { IoMap } from "react-icons/io5";
@@ -118,7 +118,7 @@ async function TourDetails({ params }) {
                 </p>
               </div>
               <p className="font-Medium text-[#000000] text-[16px]  mt-1">
-                {getPersianVehicleName(tourData.fleetVehicle)}
+                {getVehicleInfo(tourData.fleetVehicle)}
               </p>
             </div>
 
