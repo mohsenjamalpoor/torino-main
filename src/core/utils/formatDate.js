@@ -1,9 +1,23 @@
-const persianDateFormatter = new Intl.DateTimeFormat("fa-IR-u-ca-persian", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});
+import dayjs from "dayjs";
+import jalaliday from "jalaliday";
+import "dayjs/locale/fa";
 
-export function formatDate(date) {
-  return persianDateFormatter.format(new Date(date));
-}
+dayjs.extend(jalaliday);
+
+const toPersianDigits = (value) =>
+  value.replace(/\d/g, (digit) => "۰۱۲۳۴۵۶۷۸۹"[Number(digit)]);
+
+export const formatDate = (date, format = "YYYY/MM/DD") => {
+  return toPersianDigits(
+    dayjs(date).calendar("jalali").locale("fa").format(format),
+  );
+};
+
+export const getDuration = (startDate, endDate) => {
+  const nights = dayjs(endDate).diff(dayjs(startDate), "day");
+  const days = nights + 1;
+
+  return `${toPersianDigits(String(days))} روز ${toPersianDigits(
+    String(nights),
+  )} شب`;
+};

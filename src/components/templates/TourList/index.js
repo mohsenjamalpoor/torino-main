@@ -1,7 +1,7 @@
 import formatPrice from "@/core/utils/formatPrice";
 import { getPersianMonth } from "@/core/utils/formatTime ";
 import getDuration from "@/core/utils/getDuration";
-import Image from "next/image";
+
 import Link from "next/link";
 
 function TourList({ toursData }) {

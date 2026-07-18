@@ -10,7 +10,7 @@ export default function ProfileSidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="w-full mt-10 lg:w-72">
+    <aside className="w-full mt-5 lg:w-72">
       <div className="overflow-hidden rounded-xl border border-[#00000033] bg-white shadow-sm">
         <Link
           href="/profile"

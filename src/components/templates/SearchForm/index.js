@@ -34,7 +34,7 @@ function SearchForm() {
   return (
     <form
       onSubmit={handleSubmit(submitHandler)}
-      className="flex items-center gap-4 mt-5 border border-gray-300 m-auto p-2 rounded-lg w-fit"
+      className="flex items-center gap-4 mt-5 border border-gray-300 m-auto px-10 py-1 rounded-lg w-fit"
     >
       <CitySelect control={control} name="originId" label="مبدا" />
       <div className="border-r h-12 border-[#00000033]"></div>

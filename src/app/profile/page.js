@@ -7,7 +7,7 @@ export default function ProfilePage() {
   const { data } = useGetUserData();
 
   return (
-    <section className="space-y-6">
+    <section className="space-y-6 mt-5">
       <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
         <div className="mb-6 flex items-center justify-between">
           <h2 className="font-bold">اطلاعات حساب کاربری</h2>

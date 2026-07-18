@@ -5,7 +5,8 @@ import { serverFetch } from "@/core/services/http";
 import Image from "next/image";
 
 async function Home({ searchParams }) {
-  const data = await serverFetch("/tour", searchParams, { cache: "no-store" });
+  const params = await searchParams;
+  const data = await serverFetch("/tour", params, { cache: "no-store" });
 
   return (
     <div>

@@ -31,3 +31,9 @@ export const useGetMyTours = () => {
 
   return useQuery({ queryFn, queryKey });
 };
+export const useGetTransactions = () => {
+  const queryFn = () => api.get("/user/transactions");
+  const queryKey = ["user-transactions"];
+
+  return useQuery({ queryFn, queryKey });
+};

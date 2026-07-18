@@ -1,6 +1,7 @@
 import ReserveButton from "@/components/atoms/ReserveButton";
 import { serverFetch } from "@/core/services/http";
-import { formatDate } from "@/core/utils/formatDate";
+import { formatDate, getDuration } from "@/core/utils/formatDate";
+
 import formatPrice from "@/core/utils/formatPrice";
 import { getPersianCityName } from "@/core/utils/getPersianCityName";
 import { getPersianVehicleName } from "@/core/utils/getPersianVehicleName";
@@ -34,6 +35,9 @@ async function TourDetails({ params }) {
               <h1 className="text-[32px] font-bold text-[#000000] mb-6">
                 {tourData.title}
               </h1>
+              <p className="text-[#7D7D7D] text-lg mt-2">
+                {getDuration(tourData.startDate, tourData.endDate)}
+              </p>
               <div className="flex gap-6 my-10">
                 <div className="flex items-center gap-2">
                   <FaUserCheck size={18} className="text-[#7D7D7D]" />
@@ -89,7 +93,7 @@ async function TourDetails({ params }) {
                 </p>
               </div>
               <p className="font-Medium text-[#000000] text-[16px] mt-1">
-                {formatDate(tourData.startDate)}
+                {formatDate(tourData.startDate, "DD MMMM YYYY")}
               </p>
             </div>
 
@@ -102,7 +106,7 @@ async function TourDetails({ params }) {
               </div>
 
               <p className="font-medium text-[#000000] text-[16px] mt-1">
-                {formatDate(tourData.endDate)}
+                {formatDate(tourData.endDate, "DD MMMM YYYY")}
               </p>
             </div>
 

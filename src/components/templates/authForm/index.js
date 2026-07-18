@@ -14,14 +14,30 @@ import { MdOutlineTravelExplore } from "react-icons/md";
 import { IoIosArrowDown, IoMdLogOut } from "react-icons/io";
 import { FaRegUser } from "react-icons/fa";
 import { BiUser } from "react-icons/bi";
+import { useRouter } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
+import { setCookie } from "@/core/utils/cookie";
 
 function AuthForm() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
   const [mobile, setMobile] = useState("");
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+  const queryClient = useQueryClient();
 
   const { data } = useGetUserData();
+  const logoutHandler = () => {
+    setCookie("accessToken", "", 0);
+    setCookie("refreshToken", "", 0);
+
+    queryClient.removeQueries();
+    queryClient.clear();
+
+    setOpen(false);
+
+    router.refresh();
+  };
 
   if (data?.data)
     return (
@@ -39,6 +55,7 @@ function AuthForm() {
           <div className="absolute left-0 mt-3 w-56 rounded-xl  bg-white shadow-lg">
             <Link
               href="/"
+              onClick={() => setOpen(false)}
               className="flex items-center bg-[#F4F4F4] gap-3 p-3 hover:bg-gray-50"
             >
               <TiUser
@@ -50,6 +67,7 @@ function AuthForm() {
 
             <Link
               href="/profile"
+              onClick={() => setOpen(false)}
               className="flex items-center text-[14px] text-[#282828] gap-3 p-3 hover:bg-gray-50"
             >
               <BiUser size={20} />
@@ -57,7 +75,7 @@ function AuthForm() {
             </Link>
             <div className="border-t w-50 mr-2  border-[#00000033]"></div>
             <button
-              // onClick={logoutHandler}
+              onClick={logoutHandler}
               className="flex text-[14px] cursor-pointer items-center gap-3 p-3 text-[#D40000]"
             >
               <IoMdLogOut size={20} />
