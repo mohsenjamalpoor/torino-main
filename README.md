@@ -1,3 +1,50 @@
+#torino | online Tour Reservation application
+
+#short description of the project
+
+#demo
+
+#technologies 
+react.js
+next.js
+tailwind css
+TanStack Query
+Axios
+
+#project Structure
+src
+├── components
+│   ├── layout
+│   ├── modules
+│   ├── template
+│   
+│
+├── pages
+│   ├── basckt
+│   ├── 404
+│   ├── tour
+│   └── index.js
+│--- providers
+├── services
+├── utils
+└── config
+
+#installation
+
+
+
+
+#developer
+Mohsen Jamalpoor
+
+#Email
+mohsenjamal1023@gmail.com
+
+#GitHub
+https://github.com/mohsenjamalpoor/torino.git
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
